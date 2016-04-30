@@ -4,7 +4,7 @@
 #
 Name     : funcsigs
 Version  : 1.0.0
-Release  : 8
+Release  : 9
 URL      : https://pypi.python.org/packages/source/f/funcsigs/funcsigs-1.0.0.tar.gz
 Source0  : https://pypi.python.org/packages/source/f/funcsigs/funcsigs-1.0.0.tar.gz
 Summary  : Python function signatures from PEP362 for Python 2.6, 2.7 and 3.2+
