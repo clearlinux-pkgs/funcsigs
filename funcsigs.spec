@@ -4,7 +4,7 @@
 #
 Name     : funcsigs
 Version  : 1.0.2
-Release  : 12
+Release  : 13
 URL      : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz
 Source0  : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz
 Summary  : Python function signatures from PEP362 for Python 2.6, 2.7 and 3.2+
