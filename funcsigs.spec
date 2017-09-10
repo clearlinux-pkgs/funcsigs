@@ -6,13 +6,14 @@
 #
 Name     : funcsigs
 Version  : 1.0.2
-Release  : 18
+Release  : 19
 URL      : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz
 Source0  : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz
 Source99 : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz.asc
 Summary  : Python function signatures from PEP362 for Python 2.6, 2.7 and 3.2+
 Group    : Development/Tools
 License  : Apache-2.0
+Requires: funcsigs-legacypython
 Requires: funcsigs-python
 Requires: ordereddict
 BuildRequires : linecache2
@@ -31,9 +32,18 @@ sphinx-quickstart on Fri Apr 20 20:27:52 2012.
 You can adapt this file completely to your liking, but it should at least
 contain the root `toctree` directive.
 
+%package legacypython
+Summary: legacypython components for the funcsigs package.
+Group: Default
+
+%description legacypython
+legacypython components for the funcsigs package.
+
+
 %package python
 Summary: python components for the funcsigs package.
 Group: Default
+Requires: funcsigs-legacypython
 
 %description python
 python components for the funcsigs package.
@@ -47,7 +57,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1503089613
+export SOURCE_DATE_EPOCH=1505002432
 python2 setup.py build -b py2
 python3 setup.py build -b py3
 
@@ -57,7 +67,7 @@ export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 PYTHONPATH=%{buildroot}/usr/lib/python3.6/site-packages python3 setup.py test
 %install
-export SOURCE_DATE_EPOCH=1503089613
+export SOURCE_DATE_EPOCH=1505002432
 rm -rf %{buildroot}
 python2 -tt setup.py build -b py2 install --root=%{buildroot} --force
 python3 -tt setup.py build -b py3 install --root=%{buildroot} --force
@@ -68,7 +78,10 @@ echo ----[ mark ]----
 %files
 %defattr(-,root,root,-)
 
-%files python
+%files legacypython
 %defattr(-,root,root,-)
 /usr/lib/python2*/*
+
+%files python
+%defattr(-,root,root,-)
 /usr/lib/python3*/*
