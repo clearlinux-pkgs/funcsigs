@@ -49,7 +49,6 @@ jupyterlab_launcher
 libdazzle
 libgepub
 libgudev
-libgweather
 libmediaart
 librsvg
 libsoup
@@ -64,7 +63,6 @@ ostree
 pango
 spice-gtk
 totem
-totem-pl-parser
 upower
 virt-viewer
 webkitgtk
