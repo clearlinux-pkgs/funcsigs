@@ -6,10 +6,10 @@
 #
 Name     : funcsigs
 Version  : 1.0.2
-Release  : 46
+Release  : 47
 URL      : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz
 Source0  : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz
-Source99 : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz.asc
+Source1 : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz.asc
 Summary  : Python function signatures from PEP362 for Python 2.6, 2.7 and 3.2+
 Group    : Development/Tools
 License  : Apache-2.0
@@ -19,8 +19,8 @@ Requires: funcsigs-python3 = %{version}-%{release}
 Requires: ordereddict
 BuildRequires : buildreq-distutils3
 BuildRequires : linecache2
+BuildRequires : ordereddict
 BuildRequires : setuptools
-BuildRequires : setuptools-legacypython
 BuildRequires : six
 BuildRequires : traceback2
 BuildRequires : unittest2
@@ -64,8 +64,13 @@ python3 components for the funcsigs package.
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
-export LANG=C
-export SOURCE_DATE_EPOCH=1554319813
+export LANG=C.UTF-8
+export SOURCE_DATE_EPOCH=1571089770
+export GCC_IGNORE_WERROR=1
+export CFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$CFLAGS -fno-lto "
+export FFLAGS="$CFLAGS -fno-lto "
+export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -78,7 +83,7 @@ PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/funcsigs
-cp LICENSE %{buildroot}/usr/share/package-licenses/funcsigs/LICENSE
+cp %{_builddir}/funcsigs-1.0.2/LICENSE %{buildroot}/usr/share/package-licenses/funcsigs/ff5d728e7efdc9db8f36d54824ca9a57f497e1f6
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -89,7 +94,7 @@ echo ----[ mark ]----
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/funcsigs/LICENSE
+/usr/share/package-licenses/funcsigs/ff5d728e7efdc9db8f36d54824ca9a57f497e1f6
 
 %files python
 %defattr(-,root,root,-)

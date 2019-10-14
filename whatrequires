@@ -1,4 +1,11 @@
 # This file contains recursive sources that require this package
 Mako
 alembic
+amazon-efs-utils
+ceph
+debtcollector
 jsonschema
+numba
+oslo.utils
+python-mock
+python-zstandard
