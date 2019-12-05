@@ -6,7 +6,7 @@
 #
 Name     : funcsigs
 Version  : 1.0.2
-Release  : 49
+Release  : 50
 URL      : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz
 Source0  : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz
 Source1 : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz.asc
@@ -59,13 +59,15 @@ python3 components for the funcsigs package.
 
 %prep
 %setup -q -n funcsigs-1.0.2
+cd %{_builddir}/funcsigs-1.0.2
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1571089770
+export SOURCE_DATE_EPOCH=1575546046
+# -Werror is for werrorists
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$CFLAGS -fno-lto "
@@ -74,11 +76,6 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
-%check
-export http_proxy=http://127.0.0.1:9/
-export https_proxy=http://127.0.0.1:9/
-export no_proxy=localhost,127.0.0.1,0.0.0.0
-PYTHONPATH=%{buildroot}/usr/lib/python3.7/site-packages python3 setup.py test
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
