@@ -3,9 +3,6 @@ Mako
 alembic
 amazon-efs-utils
 ceph
-debtcollector
 jsonschema
 numba
-oslo.utils
-python-mock
 python-zstandard
