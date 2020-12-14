@@ -6,7 +6,7 @@
 #
 Name     : funcsigs
 Version  : 1.0.2
-Release  : 56
+Release  : 57
 URL      : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz
 Source0  : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz
 Source1  : http://pypi.debian.net/funcsigs/funcsigs-1.0.2.tar.gz.asc
